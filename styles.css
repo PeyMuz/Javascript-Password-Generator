@@ -1,6 +1,6 @@
-@import url(https://fonts.googleapis.com/css2?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-:root{
+:root {
     --primary-color: #2b5876;
     --secondary-color: #4e4376;
     --weak-color: #fc8181;
@@ -8,14 +8,14 @@
     --strong-color: #68d391;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
 }
 
-body{
+body {
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
     min-height: 100vh;
     display: flex;
@@ -32,7 +32,7 @@ body{
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-h1{
+h1 {
     text-align: center;
     margin-bottom: 1.8rem;
     color: var(--primary-color);
@@ -42,7 +42,7 @@ h1{
     padding-bottom: 0.5rem;
 }
 
-h1::after{
+h1::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -64,12 +64,12 @@ h1::after{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding:0 1rem 0 0;
+    padding: 0 1rem 0 0;
 }
 
-#password{
+#password {
     width: 100%;
-    padding:1.1rem;
+    padding: 1.1rem;
     padding-right: 58px;
     border: none;
     background: transparent;
@@ -79,29 +79,39 @@ h1::after{
     border-radius: 10px;
 }
 
-.options{
+#copy-btn {
+    width: auto;
+    padding: 0.5rem;
+    background: transparent;
+    color: var(--primary-color);
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.options {
     margin-bottom: 2rem;
     background-color: #f8fafc;
-    padding:1.5rem;
+    padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-.option{
+.option {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
 }
 
-.option:last-child{
+.option:last-child {
     margin-bottom: 0;
 }
 
-.option label{
-   font-size: 0.9rem;
-   color: #4a5568;
-   font-weight: 500;
+.option label {
+    font-size: 0.9rem;
+    color: #4a5568;
+    font-weight: 500;
 }
 
 .range-container {
@@ -111,15 +121,69 @@ h1::after{
     width: 60%;
 }
 
-input[type="range"]{
+input[type="range"] {
     accent-color: var(--primary-color);
     height: 5px;
-    flex:1;
+    flex: 1;
 }
 
-input[type="checkbox"]{
-   width: 20px;
-   height: 20px;
-   border: 2px solid var(--primary-color);
-   appearance: none;
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--primary-color);
+    appearance: none;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--primary-color);
+}
+
+input[type="checkbox"]:checked::after {
+    content: "\2714";
+    position: absolute;
+    color: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 11px;
+}
+
+#length-value {
+    font-weight: 600;
+    color: var(--primary-color);
+    width: 30px;
+    text-align: center;
+    background: #e2e8f0;
+    border-radius: 4px;
+    padding: 2px 5px;
+}
+
+#generate-btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    border-radius: 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 8px rgba(43, 88, 118 0.2);
+}
+
+
+button:hover{
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
 }
