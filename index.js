@@ -49,9 +49,30 @@ function makepassword (){
     );
 
     passwordInput.value = newPassword;
+    updateStrengthMeter
 }
 
-function createRandomPassword(length, includeUppercase, includeLowercase, includeNumbers, includeSymbols) {
+function createRandomPassword(length, 
+    includeUppercase, 
+    includeLowercase, 
+    includeNumbers, 
+    includeSymbols) {
 
+    let allCharacters = "";
+
+    if(includeUppercase) allCharacters += uppercaseLetters;
+    if (includeLowercase) allCharacters += lowercaseLetters;
+    if (includeNumbers) allCharacters += numberCharacters;
+    if (includeSymbols) allCharacters += symbolCharacters;
+
+    let password = "";
+
+    for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * allCharacters.length);
+        password += allCharacters[randomIndex];
+    }
+
+    return password;
+   
 }
 
