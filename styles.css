@@ -90,6 +90,7 @@ h1::after {
     border: none;
     cursor: pointer;
     flex-shrink: 0;
+    font-size: 20px;
 }
 
 .options {
@@ -107,6 +108,9 @@ h1::after {
     gap: 12px;
     margin-bottom: 1rem;
 }
+
+
+
 
 .option:last-child {
     margin-bottom: 0;

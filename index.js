@@ -57,7 +57,7 @@ function updateStrengthMeter(password){
     const hasUppercase = /[A-Z]/.test(password);
     const hasLowercase = /[a-z]/.test(password);
     const hasNumbers = /[0-9]/.test(password);
-    const hasSymbols = /[!@#$%^&*()-_=+[]{}|;:,.<>?]/.test(password);
+    const hasSymbols = /[!@#$%^&*()-_=+[\]{}|;:,.<>?]/.test(password);
 
     let strengthScore = 0;
 
@@ -124,3 +124,30 @@ function createRandomPassword(length,
    
 }
 
+window.addEventListener("DOMContentLoaded", makepassword);
+
+copyButton.addEventListener("click", () => {
+   if (!passwordInput.value) return;
+
+   navigator.clipboard
+       .writeText(passwordInput.value)
+       .then(() => showCopySuccess())
+       .catch((error) => alert("Could not copy:", error));
+});
+
+function showCopySuccess () {
+    const icon = copyButton.querySelector("i");
+
+    icon.classList.remove("bi-clipboard");
+    icon.classList.add("bi-check");
+    icon.style.color = "#48bb78";
+    icon.style.fontSize = "20px";
+
+    setTimeout(() =>{
+        icon.classList.remove("bi-check");
+        icon.classList.add("bi-clipboard");
+        icon.style.color = "";
+    }, 2000);
+
+
+}
